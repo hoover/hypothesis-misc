@@ -1,0 +1,8 @@
+[privacyidea]
+url = https://<privacy_idea_url>
+realm = <privacy_idea_realm>
+user = <privacy_idea_admin_user>
+password = <privacy_idea_admin_password>
+[redis]
+host = <redis_host>
+port = <redis_port>

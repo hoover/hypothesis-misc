@@ -1,0 +1,2 @@
+[program:h-to-rocket-chat]
+command = <path_to_h_to_rocket_chat_py> --config <path_to_rocket_chat_conf>

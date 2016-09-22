@@ -1,0 +1,11 @@
+[redis]
+host = <redis_host>
+port = <redis_port>
+database = <redis_db>
+[hypothesis]
+url = http://<hypothesis_api_url>
+search_params = <hypothesis_search_string> #eg: search?sort=created&limit=100
+[rocketchat]
+endpoint = https://<rocket_chat_in_sandstorm_api_endpoint>/hooks/
+path = <rocket_chat_in_sandstorm_path>
+auth_token = <rocket_chat_in_sandstorm_token>
