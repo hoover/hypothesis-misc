@@ -41,6 +41,7 @@ users = users_response['result']['value']
 
 # Go through the list of users and add them to Hypothesis unless they have
 # been already added to it. We check that by comparing to the Redis cache
+h_users = {}
 for user in users:
     username = user['username']
     if user['email'] == '': email = 'admin@eic.network'
@@ -50,5 +51,9 @@ for user in users:
     if username in users_in_redis:
         pass
     else:
+        h_users[username] = email
         subprocess.call(["/var/local/hypothesis/bin/run-h-add-user",
                         username, email, passw])
+
+# Write the new list of synced users in Redis
+ r.set('h_users', json.dumps(h_users))
