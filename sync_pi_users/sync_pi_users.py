@@ -56,4 +56,4 @@ for user in users:
                         username, email, passw])
 
 # Write the new list of synced users in Redis
- r.set('h_users', json.dumps(h_users))
+r.set('h_users', json.dumps(h_users))
