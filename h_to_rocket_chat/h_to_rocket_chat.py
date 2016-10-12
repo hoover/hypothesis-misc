@@ -22,6 +22,7 @@ try:
     redis_db = config['redis']['database']
     hypothesis_url = config['hypothesis']['url']
     hypothesis_search_params = config['hypothesis']['search_params']
+    hypothesis_api_token = config['hypothesis']['api_token']
     rocketchat_endpoint = config['rocketchat']['endpoint']
     rocketchat_path = config['rocketchat']['path']
     rocketchat_auth_token = config['rocketchat']['auth_token']
@@ -57,8 +58,9 @@ def check_id_in_redis(annotation_id):
 # Call the Hypothesis API endpoint and get annotations based on the search
 # term found in the config file
 def get_annotations():
+    h_cookies = dict(h_api_auth=hypothesis_api_token)
     h_search = hypothesis_search_params
-    h_request = requests.get(hypothesis_url + h_search)
+    h_request = requests.get(hypothesis_url + h_search, cookies=h_cookies)
     h_result = json.loads(h_request.text)
     return h_result
 
