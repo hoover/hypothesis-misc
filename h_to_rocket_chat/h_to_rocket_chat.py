@@ -99,6 +99,7 @@ def main():
 # We want to run this script under supervisor, so go run through the main loop
 # endlessly, with a short break and let supervisor take care of the rest
 if __name__ == '__main__':
+    time.sleep(7)
     while True:
         main()
         time.sleep(3)
