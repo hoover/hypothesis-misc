@@ -44,9 +44,12 @@ def post_to_rocket_chat(rc_endpoint,rc_path,rc_token,message,title,link,
                         text,source):
     rc_headers = {'Authorization': 'Bearer ' + rc_token,
                  'Content-Type': 'application/x-www-form-urlencoded'}
+#    rc_payload = 'payload={"text":"%s", "attachments":[{"title":"%s",\
+#                  "title_link":"%s", "text":"Source: %s. %s",\
+#                  "color":"#764FA5"}]}' % (message, title, link, source, text)
     rc_payload = 'payload={"text":"%s", "attachments":[{"title":"%s",\
-                  "title_link":"%s", "text":"Source: %s. %s",\
-                  "color":"#764FA5"}]}' % (message, title, link, source, text)
+                  "title_link":"%s", "text":"%s",\
+                  "color":"#764FA5"}]}' % (message, title, link, text)
     rc_request = requests.post(rc_endpoint + rc_path, headers=rc_headers,
                   data=rc_payload.encode('utf-8'))
 
